@@ -43,14 +43,10 @@ def ant_dfs(maps, start=(10, 1), max_path=4, replace='*'):
     count = 0
     while s:
         x, y = s.pop()
-        # if (x, y) not in visited and \
-        #         can_move(x, y) <= max_path and \
-        #         distance(start, (x, y)) <= max_path:
         if (x, y) not in visited and \
                 can_move(x, y) <= max_path:
             maps[y][x] = replace
             count += 1
-            # s += [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]
             if can_move(x + 1, y):
                 s.append((x + 1, y))
             if can_move(x - 1, y):
