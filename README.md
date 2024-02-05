@@ -7,6 +7,6 @@ Different approaches to implementing the search for ant paths
 
 | Type | Link |
 | ------ | ------ |
-| Depth-first search (open world) | [1_dfs_open_world.py][PlDb] |
-| Depth-first search (2 types of "hard" map) | [2_dfs_on_map.py][PlGh] |
-| Turmit (Turing machine) -_not finished_- | [3_turmit.py][PlGd] |
+| Depth-first search (open world) | [./1_dfs_open_world.py](https://github.com/ViktorKostin/ant_paths/blob/main/1_dfs_open_world.py) |
+| Depth-first search (2 types of "hard" map) | [./2_dfs_on_map.py]( https://github.com/ViktorKostin/ant_paths/blob/main/2_dfs_on_map.py)|
+| Turmit (Turing machine) -_not finished_- | [./3_turmit.py](https://github.com/ViktorKostin/ant_paths/blob/main/3_turmit.py) |
