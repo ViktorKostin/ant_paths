@@ -1,17 +1,13 @@
 import time
 
-
-def can_move(i, u):
-    iu = str(i) + str(u)
-    if not iu.isdigit():
+def can_move(x, y, distance):
+    xy = str(x) + str(y)
+    if not xy.isdigit():
         return False
-    return reduce(
-        lambda x, y: int(x) + int(y),
-        list(iu)
-    )
+    return sum(map(int, xy)) <= distance
 
 
-def create_map_with_road(row_num=0, max_path=25, rows=20, cols=10):
+def create_map_with_road(row_num, max_path, rows, cols):
     count = 0
     maps = []
     for i in xrange(rows):
@@ -26,7 +22,7 @@ def create_map_with_road(row_num=0, max_path=25, rows=20, cols=10):
     return maps
 
 
-def create_map_without_road(row_num=0, rows=20, cols=10):
+def create_map_without_road(row_num, rows, cols):
     maps = []
     for i in xrange(1, rows + 1):
         maps.append([])
@@ -36,7 +32,7 @@ def create_map_without_road(row_num=0, rows=20, cols=10):
     return maps
 
 
-def ant_dfs(maps, start=(10, 1), max_path=4, replace='*'):
+def ant_dfs(maps, start, max_path=4, replace='*'):
     s = [start]
     start_x, start_y = start[0], start[1]
     visited = set()
@@ -56,16 +52,16 @@ def ant_dfs(maps, start=(10, 1), max_path=4, replace='*'):
             if can_move(x, y - 1):
                 s.append((x, y - 1))
             visited.add((x, y))
-    print count
+    return count
 
 
 start_time = time.time()
 maps = create_map_without_road(row_num=0, rows=2000, cols=2000)
-ant_dfs(maps, start=(1000, 1000), max_path=25, replace='*')
+print ant_dfs(maps, start=(1000, 1000), max_path=25, replace='*')
 print 'fill map without ant road:', time.time() - start_time
 
 start_time = time.time()
-maps = create_map_with_road(row_num=0, rows=2000, cols=2000)
-ant_dfs(maps, start=(1000, 1000), max_path=25, replace='*')
+maps = create_map_with_road(row_num=0, max_path=25, rows=2000, cols=2000)
+print ant_dfs(maps, start=(1000, 1000), max_path=25, replace='*')
 print 'fill map with ant road:', time.time() - start_time
 # 148848

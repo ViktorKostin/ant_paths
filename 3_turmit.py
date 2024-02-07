@@ -8,9 +8,6 @@ class TapeLetter:
     M = 'M'
     s = 'a'
 
-    def __init__(self):
-        pass
-
 
 class Direction:
     UP = 'UP'
